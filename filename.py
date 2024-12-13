@@ -20,3 +20,12 @@ for i in range(dst.shape[0]):
             cv2.circle(imgHarris, (j, i), 3, (0, 255, 0), -1)
 plt.imshow(cv2.cvtColor(imgHarris, cv2.COLOR_BGR2RGB))
 plt.show()
+
+corners = cv2.goodFeaturesToTrack(gray, maxCorners=100, qualityLevel=0.01, minDistance=10)
+corners = np.int0(corners)
+imgShiTomasi = img.copy()
+for corner in corners:
+    x, y = corner.ravel()
+    cv2.circle(imgShiTomasi, (x, y), 3, (255, 0, 0), -1)
+plt.imshow(cv2.cvtColor(imgShiTomasi, cv2.COLOR_BGR2RGB))
+plt.show()
