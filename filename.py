@@ -29,3 +29,9 @@ for corner in corners:
     cv2.circle(imgShiTomasi, (x, y), 3, (255, 0, 0), -1)
 plt.imshow(cv2.cvtColor(imgShiTomasi, cv2.COLOR_BGR2RGB))
 plt.show()
+
+orb = cv2.ORB_create()
+keypoints, descriptors = orb.detectAndCompute(gray, None)
+imgORB = cv2.drawKeypoints(img, keypoints, None, flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+plt.imshow(cv2.cvtColor(imgORB, cv2.COLOR_BGR2RGB))
+plt.show()
